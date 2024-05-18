@@ -34,6 +34,9 @@ formEl.addEventListener('submit', (event) => {
     if (formData.email.trim() === "" || formData.message.trim() === "") {
         return alert("Fill please all fields");
     } else {
+        // Save formData to local storage before clearing it
+        localStorage.setItem('feedback-form-state', JSON.stringify(formData));
+
         console.log(formData);
         localStorage.removeItem('feedback-form-state');
         formData.email = "";
